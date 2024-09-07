@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Variables
+VM_NAME="Your_VM_Name"          # Replace with your VM name
+BACKUP_DIR="/path/to/backup"    # Replace with your backup directory
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+BACKUP_FILE="$BACKUP_DIR/${VM_NAME}_backup_$DATE.ova"
+LOG_FILE="$BACKUP_DIR/backup_log.txt"
+
+# Stop VM (optional if the VM is running)
+VBoxManage controlvm "$VM_NAME" acpipowerbutton
+sleep 60  # Wait for VM to power off
+
+# Export VM
+VBoxManage export "$VM_NAME" --output "$BACKUP_FILE"
+
+# Compress backup
+gzip "$BACKUP_FILE"
+
+# Log the result
+echo "Backup of $VM_NAME completed on $DATE" >> "$LOG_FILE"
+
