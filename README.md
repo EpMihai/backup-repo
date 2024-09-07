@@ -1,8 +1,8 @@
 # backup-repo
 Back up of my local virtual machine work 
-# For VirtualBox, you can use VBoxManage to manage your VMs via command line.
-# This script will export the VM in OVA format and compress the backup to save space.
-# Save the script above as backup_vm.sh
+For VirtualBox, you can use VBoxManage to manage your VMs via command line.
+This script will export the VM in OVA format and compress the backup to save space.
+Save the script above as backup_vm.sh
 
 Setting Up Cron Job for VirtualBox:
 
